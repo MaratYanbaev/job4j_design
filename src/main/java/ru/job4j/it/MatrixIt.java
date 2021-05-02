@@ -33,12 +33,6 @@ public class MatrixIt implements Iterator<Integer> {
         if (!hasNext()) {
             throw new NoSuchElementException();
         }
-        for (; row < data.length; row++) {
-            if (data[row].length > column) {
-                return data[row][column++];
-            }
-            column = 0;
-        }
-        return null;
+        return data[row][column++];
     }
 }
