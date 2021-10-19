@@ -5,7 +5,6 @@ import java.util.Map;
 
 /**
  * @author Marat
- * @create 19.10.2021
  */
 public final class MemStore<T extends Base> implements Store<T> {
 
