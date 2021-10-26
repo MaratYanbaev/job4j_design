@@ -46,6 +46,7 @@ public class SimpleArrayList<T> implements List<T> {
     @Override
     public T remove(int index) {
         T element = get(index);
+        modCount++;
         size = size - 1;
         if (size > index) {
             System.arraycopy(container, index + 1, container, index, size - index);
