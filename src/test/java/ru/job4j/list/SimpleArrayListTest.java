@@ -9,6 +9,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import ru.job4j.list.simple.array.list.List;
+import ru.job4j.list.simple.array.list.SimpleArrayList;
+
 /**
  * @author Marat
  * @create 20.10.2021
