@@ -35,7 +35,7 @@ public class SimpleLinkedList<E> implements List<E> {
         for (int i = 0; i < index; i++) {
             prev = prev.next;
         }
-        return (E) prev.item;
+        return prev.item;
     }
 
     @Override
