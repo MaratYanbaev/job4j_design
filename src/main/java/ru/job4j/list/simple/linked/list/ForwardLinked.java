@@ -42,33 +42,27 @@ public class ForwardLinked<T> implements Iterable<T> {
             return false;
         }
         Node<T> newHead = null;
-        Node<T> newLastNode = null;
         Node<T> lastProcessedNode = null;
         Node<T> node = head;
 
-        while (Objects.nonNull(node.next) && head != lastProcessedNode) {
+        while (head != lastProcessedNode) {
 
-            if (Objects.isNull(newHead) && Objects.isNull(node.next.next)) {
-                newHead = new Node<>(node.next.value, null);
-                lastProcessedNode = node.next;
+            if (newHead == null && node.next.next == null) {
+                newHead = new Node<>(node.next.value, node);
+                lastProcessedNode = node;
+                node = head;
 
             } else if (node.next == lastProcessedNode) {
-
-                if (Objects.isNull(newHead.next)) {
-                    newLastNode = new Node<>(node.value, null);
-                    newHead.next = newLastNode;
-                } else {
-                    newLastNode.next = new Node<>(node.value, null);
-                    newLastNode = newLastNode.next;
-                }
-
+                lastProcessedNode.next = node;
                 lastProcessedNode = node;
                 node = head;
 
             } else {
                 node = node.next;
             }
+
         }
+
         head = newHead;
         return true;
     }
